@@ -6,9 +6,11 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 20:07:39 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/04 22:56:56 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/04 22:59:04 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	put_percent(t_option *opt, va_list ap)
 {
