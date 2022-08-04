@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   put_chr_str.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/04 15:40:45 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/04 19:53:27 by hyeyukim         ###   ########.fr       */
+/*   Created: 2022/08/04 20:07:39 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/08/04 20:09:03 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_option
+int	put_percent(t_option *opt, va_list ap)
 {
-	unsigned char	flag;
-	int				width;
-	int				precision;
-	unsigned char	identifier;
-	char			*buff;
-}	t_option;
+	
+}
 
-typedef int	(*t_fct)(t_option *, va_list);
+int	put_chr(t_option *opt, va_list ap)
+{
 
+}
 
-int	ft_printf(const char *format, ...);
-
-#endif
+int	put_str(t_option *opt, va_list ap)
+{
+	
+}

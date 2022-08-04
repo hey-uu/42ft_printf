@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   put_integers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/04 15:40:45 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/04 19:53:27 by hyeyukim         ###   ########.fr       */
+/*   Created: 2022/08/04 20:09:39 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/08/04 20:12:53 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# include <stdlib.h>
-# include <unistd.h>
-
-typedef struct s_option
+int	put_nbr(t_option *opt, va_list ap)
 {
-	unsigned char	flag;
-	int				width;
-	int				precision;
-	unsigned char	identifier;
-	char			*buff;
-}	t_option;
 
-typedef int	(*t_fct)(t_option *, va_list);
+}
 
+int	put_unbr(t_option *opt, va_list ap)
+{
 
-int	ft_printf(const char *format, ...);
+}
 
-#endif
+int	put_ptr(t_option *opt, va_list ap)
+{
+
+}
+
+int	put_xunbr_lower(t_option *opt, va_list ap)
+{
+
+}
+
+int	put_xunbr_upper(t_option *opt, va_list ap)
+{
+
+}
