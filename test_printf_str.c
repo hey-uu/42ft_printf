@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 22:31:35 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/04 22:52:45 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/05 10:55:46 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(void)
 {
 	const char	*str2 = NULL;
-	const char	*str1 = "This is hell...";
+	const char	*str1 = "hell...";
 	int			res;
 	
 	printf("===================================== %%s ===================================\n");
@@ -52,59 +52,72 @@ int	main(void)
 	res = printf("%10s", str1);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#9 : width(20)\n");
+	printf("#9 : flag(-) & width(10)\n");
+	res = printf("%-10s", str1);
+	printf("\n>> res value : %d <<\n\n", res);
+
+	printf("#10 : flag(0) & width(10)\n");
+	res = printf("%010s", str1);
+	printf("\n>> res value : %d <<\n\n", res);
+
+	printf("#11 : flag(-) & flag(0) & width(10)\n");
+	res = printf("%-010s", str1);
+	printf("\n>> res value : %d <<\n\n", res);
+
+	printf("#12 : width(20)\n");
 	res = printf("%20s", str1);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#10 : precision(.1)\n");
+	printf("#13 : precision(.1)\n");
 	res = printf("%.1s", str1);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#11 :  presision(.10)\n");
+	printf("#14 :  presision(.10)\n");
 	res = printf("%.10s", str1);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#12 :  presision(.20)\n");
+	printf("#15 :  presision(.20)\n");
 	res = printf("%.20s", str1);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#13 : width & precision (1.)\n");
+	printf("#16 : width & precision (1.)\n");
 	res = printf("%1.s", str1);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#14 : width & precision (1.10)\n");
+	printf("#17 : width & precision (1.10)\n");
 	res = printf("%1.10s", str1);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#15 : width & precision(1.20)\n");
+	printf("#18 : width & precision(1.20)\n");
 	res = printf("%1.20s", str1);
 	printf("\n>> res value : %d <<\n\n", res);
 	
-	printf("#16 : width & precision(10.1)\n");
+	printf("#19 : width & precision(10.1)\n");
 	res = printf("%10.1s", str1);
 	printf("\n>> res value : %d << \n\n", res);
 
-	printf("#16 : width & precision(10.10)\n");
+	printf("#20 : width & precision(10.10)\n");
 	res = printf("%10.10s", str1);
 	printf("\n>> res value : %d << \n\n", res);
 
-	printf("#16 : width & precision(10.20)\n");
+	printf("#21 : width & precision(10.20)\n");
 	res = printf("%10.20s", str1);
 	printf("\n>> res value : %d << \n\n", res);
 
-	printf("#16 : width & precision(20.1)\n");
+	printf("#22 : width & precision(20.1)\n");
 	res = printf("%20.1s", str1);
 	printf("\n>> res value : %d << \n\n", res);
 
-	printf("#16 : width & precision(20.10)\n");
+	printf("#23 : width & precision(20.10)\n");
 	res = printf("%20.10s", str1);
 	printf("\n>> res value : %d << \n\n", res);
 
-	printf("#16 : width & precision(20.20)\n");
+	printf("#24 : width & precision(20.20)\n");
 	res = printf("%20.20s", str1);
 	printf("\n>> res value : %d << \n\n", res);
 
 	printf("==================== case1 : char * NULL ===============================\n");
+
 	printf("#1 : (warning) flag +\n");
 	res = printf("%+s", str2);
 	printf("\n>> res value : %d <<\n\n", res);
@@ -137,19 +150,67 @@ int	main(void)
 	res = printf("%10s", str2);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#9 : width & precision (1.)\n");
-	res = printf("%1.s", str2);
+	printf("#9 : flag(-) & width(10)\n");
+	res = printf("%-10s", str2);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#10 : precision(.10)\n");
-	res = printf("%.10s", str2);
+	printf("#10 : flag(0) & width(10)\n");
+	res = printf("%010s", str2);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#11 : precision(.1)\n");
+	printf("#11 : flag(-) & flag(0) & width(10)\n");
+	res = printf("%-010s", str2);
+	printf("\n>> res value : %d <<\n\n", res);
+
+	printf("#12 : width(20)\n");
+	res = printf("%20s", str2);
+	printf("\n>> res value : %d <<\n\n", res);
+
+	printf("#13 : precision(.1)\n");
 	res = printf("%.1s", str2);
 	printf("\n>> res value : %d <<\n\n", res);
 
-	printf("#12 : width & precision(10.20)\n");
+	printf("#14 :  presision(.10)\n");
+	res = printf("%.10s", str2);
+	printf("\n>> res value : %d <<\n\n", res);
+
+	printf("#15 :  presision(.20)\n");
+	res = printf("%.20s", str2);
+	printf("\n>> res value : %d <<\n\n", res);
+
+	printf("#16 : width & precision (1.)\n");
+	res = printf("%1.s", str2);
+	printf("\n>> res value : %d <<\n\n", res);
+
+	printf("#17 : width & precision (1.10)\n");
+	res = printf("%1.10s", str2);
+	printf("\n>> res value : %d <<\n\n", res);
+
+	printf("#18 : width & precision(1.20)\n");
+	res = printf("%1.20s", str2);
+	printf("\n>> res value : %d <<\n\n", res);
+	
+	printf("#19 : width & precision(10.1)\n");
+	res = printf("%10.1s", str2);
+	printf("\n>> res value : %d << \n\n", res);
+
+	printf("#20 : width & precision(10.10)\n");
+	res = printf("%10.10s", str2);
+	printf("\n>> res value : %d << \n\n", res);
+
+	printf("#21 : width & precision(10.20)\n");
 	res = printf("%10.20s", str2);
-	printf("\n>> res value : %d <<\n\n\n", res);
+	printf("\n>> res value : %d << \n\n", res);
+
+	printf("#22 : width & precision(20.1)\n");
+	res = printf("%20.1s", str2);
+	printf("\n>> res value : %d << \n\n", res);
+
+	printf("#23 : width & precision(20.10)\n");
+	res = printf("%20.10s", str2);
+	printf("\n>> res value : %d << \n\n", res);
+
+	printf("#24 : width & precision(20.20)\n");
+	res = printf("%20.20s", str2);
+	printf("\n>> res value : %d << \n\n", res);
 }
