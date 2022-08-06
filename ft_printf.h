@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 10:37:38 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/06 10:40:34 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/06 10:44:52 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@ typedef struct s_option
 typedef int	(*t_fct)(t_option *, va_list);
 
 int		ft_printf(const char *format, ...);
-void	init_option(t_option *opt);
-int		find_flag(const char c, unsigned char *flag);
-int		find_identifier(const char c);
 
 int		ft_isdigit(int c);
 size_t	ft_strlen(const char *s);
