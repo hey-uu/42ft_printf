@@ -6,7 +6,7 @@
 #    By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 20:08:04 by hyeyukim          #+#    #+#              #
-#    Updated: 2022/08/06 10:27:23 by hyeyukim         ###   ########.fr        #
+#    Updated: 2022/08/06 10:38:32 by hyeyukim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,9 @@ ARFLAGS = crs
 RM = rm
 RMFLAGS = -f
 
-FILES = ft_libft_fcts \
-		ft_printf \
-		ft_printf_utils \
+FILES = libft_fcts \
+		printf \
+		printf_utils \
 		put_characters \
 		put_integers \
 		put_integers_utils \
