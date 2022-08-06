@@ -19,19 +19,23 @@ ARFLAGS = crs
 RM = rm
 RMFLAGS = -f
 
-FILES = libft_fcts \
-		printf \
+FILES = printf \
 		put_characters \
 		put_integers \
 		put_integers_utils \
+
+LIBFT = libft.a
+LIBFT_DIR = libft
 
 SRCS = $(addsuffix .c, $(FILES))
 OBJCS = $(addsuffix .o, $(FILES))
 
 $(NAME) : $(OBJCS)
+	make -C $(LIBFT_DIR) all
+	cp $(LIBFT_DIR)/$(LIBFT) $@
 	$(AR) $(ARFLAGS) $@ $^
 
-bonus : $(NAME)
+bonus : all
 
 %.o : %.c
 	$(CC) -c $(CFLAGS) $< -o $@
@@ -40,9 +44,11 @@ all : $(NAME)
 
 clean :
 	$(RM) $(RMFLAGS) $(OBJCS)
+	make -C $(LIBFT_DIR) clean
 
 fclean : clean
 	$(RM) $(RMFLAGS) $(NAME)
+	$(RM) $(RMFLAGS) $(LIBFT_DIR)/$(LIBFT)
 
 re : 
 	make fclean

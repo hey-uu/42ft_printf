@@ -6,11 +6,12 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 20:07:39 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/06 10:41:00 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/06 10:52:42 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 static void	fill_str(t_option *opt, const char *str, int str_len);
 

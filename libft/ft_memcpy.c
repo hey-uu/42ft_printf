@@ -1,44 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_fcts.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/06 10:16:24 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/06 10:41:00 by hyeyukim         ###   ########.fr       */
+/*   Created: 2022/07/06 17:59:32 by hyeyukim          #+#    #+#             */
+/*   Updated: 2022/07/20 08:00:34 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
-
-void	*ft_memset(void *b, int c, size_t len)
-{
-	size_t				i;
-	unsigned char		*ptr;
-	const unsigned char	new_c = (unsigned char) c;
-
-	ptr = (unsigned char *) b;
-	i = 0;
-	while (i < len)
-		ptr[i++] = new_c;
-	return (b);
-}
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
@@ -57,23 +29,4 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		i++;
 	}
 	return (dst);
-}
-
-char	*ft_strdup(const char *s1)
-{
-	const size_t	len = ft_strlen(s1);
-	char			*new_str;
-	size_t			i;
-
-	new_str = malloc(len + 1);
-	if (!new_str)
-		return (FT_NULL);
-	i = 0;
-	while (s1[i])
-	{
-		new_str[i] = s1[i];
-		i++;
-	}
-	new_str[i] = '\0';
-	return (new_str);
 }

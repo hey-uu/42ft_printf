@@ -34,12 +34,6 @@ typedef int	(*t_fct)(t_option *, va_list);
 
 int		ft_printf(const char *format, ...);
 
-int		ft_isdigit(int c);
-size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s1);
-void	*ft_memset(void *b, int c, size_t len);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-
 int		put_percent(t_option *opt, va_list ap);
 int		put_chr(t_option *opt, va_list ap);
 int		put_str(t_option *opt, va_list ap);
