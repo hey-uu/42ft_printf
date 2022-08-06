@@ -1,5 +1,6 @@
 # extra
 test
+.DS_Store
 
 # Prerequisites
 *.d
