@@ -1,6 +1,5 @@
 # extra
-main.c
-# test_*.c
+test
 
 # Prerequisites
 *.d

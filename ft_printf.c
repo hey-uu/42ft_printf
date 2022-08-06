@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:44:23 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/05 20:15:00 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/06 10:28:49 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	print_identifier(const char *format, int *i, va_list ap)
 {
-	const t_fct	put[9] = {put_chr, put_str, put_ptr, put_nbr, put_nbr, put_unbr, \
-						put_xunbr_lower, put_xunbr_upper, put_percent};
+	const t_fct	put[9] = {put_chr, put_str, put_ptr, put_nbr, put_nbr, \
+					put_unbr, put_xunbr_lower, put_xunbr_upper, put_percent};
 	t_option	opt;
 	int			res;
 
@@ -30,7 +30,7 @@ static int	print_identifier(const char *format, int *i, va_list ap)
 		while (ft_isdigit(format[++(*i)]))
 			opt.precision = opt.precision * 10 + format[*i] - '0';
 	}
-	if ((opt.flag & 021) == 021)
+	if ((opt.flag & 061) == 020)
 		opt.padding = '0';
 	res = put[find_identifier(format[*i])](&opt, ap);
 	free(opt.out);
