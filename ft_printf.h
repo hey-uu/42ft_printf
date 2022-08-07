@@ -16,9 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdio.h>
-
-# define FT_NULL (void *) 0
 
 typedef struct s_option
 {
