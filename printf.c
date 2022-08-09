@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:44:23 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/09 12:30:43 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/09 15:25:33 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ static int	print_identifier(const char *format, int *i, va_list ap)
 	while (find_flag(format[++(*i)], &opt.flag))
 		;
 	while (ft_isdigit(format[*i]))
+	{
 		opt.width = opt.width * 10 + format[(*i)++] - '0';
+		if (opt.width < 0)
+			return (-1);
+	}
 	if (format[*i] == '.')
 	{
 		opt.flag |= 1 << 5;
