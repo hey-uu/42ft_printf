@@ -6,10 +6,12 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 20:09:39 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/06 10:41:00 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/09 12:27:35 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "ft_printf.h"
 #include "libft/libft.h"
 
@@ -22,8 +24,7 @@ int	put_nbr(t_option *opt, va_list ap)
 	nbr = (long) va_arg(ap, int);
 	nbr_len = ft_nbrlen(nbr, 10, opt);
 	sign = (nbr < 0 || (opt->flag & 06) != 0);
-	opt->len = (opt->width > nbr_len + sign) * opt->width + \
-				(opt->width <= nbr_len + sign) * (nbr_len + sign);
+	opt->len = ft_max(opt->width, nbr_len + sign);
 	opt->out = malloc(opt->len);
 	if (!opt->out)
 		return (-1);
@@ -42,11 +43,9 @@ int	put_nbr(t_option *opt, va_list ap)
 int	put_unbr(t_option *opt, va_list ap)
 {
 	const unsigned int	unbr = va_arg(ap, unsigned int);
-	int					unbr_len;
+	const int			unbr_len = ft_unbrlen(unbr, 10, opt);
 
-	unbr_len = ft_unbrlen(unbr, 10, opt);
-	opt->len = (opt->width > unbr_len) * opt->width + \
-				(opt->width <= unbr_len) * unbr_len;
+	opt->len = ft_max(opt->width, unbr_len);
 	opt->out = malloc(opt->len);
 	if (!opt->out)
 		return (-1);
@@ -62,11 +61,9 @@ int	put_unbr(t_option *opt, va_list ap)
 int	put_ptr(t_option *opt, va_list ap)
 {
 	const unsigned long	ptr = (unsigned long) va_arg(ap, void *);
-	int					ptr_len;
+	const int			ptr_len = ft_unbrlen(ptr, 16, opt);
 
-	ptr_len = ft_unbrlen(ptr, 16, opt);
-	opt->len = opt->width * (opt->width > ptr_len + 2) + \
-					(ptr_len + 2) * (opt->width <= ptr_len + 2);
+	opt->len = ft_max(opt->width , ptr_len + 2);
 	opt->out = malloc(opt->len);
 	if (!opt->out)
 		return (-1);
@@ -88,13 +85,11 @@ int	put_ptr(t_option *opt, va_list ap)
 int	put_xunbr_lower(t_option *opt, va_list ap)
 {
 	const unsigned int	xunbr = va_arg(ap, unsigned int);
-	int					xunbr_len;
+	const int			xunbr_len = ft_unbrlen(xunbr, 16, opt);
 	int					hash;
 
-	xunbr_len = ft_unbrlen(xunbr, 16, opt);
 	hash = ((opt->flag & 010) == 010 && xunbr > 0) * 2;
-	opt->len = (opt->width > xunbr_len + hash) * opt->width + \
-			(opt->width <= xunbr_len + hash) * (xunbr_len + hash);
+	opt->len = ft_max(opt->width, xunbr_len + hash);
 	opt->out = malloc(opt->len);
 	if (!opt->out)
 		return (-1);
@@ -112,13 +107,11 @@ int	put_xunbr_lower(t_option *opt, va_list ap)
 int	put_xunbr_upper(t_option *opt, va_list ap)
 {
 	const unsigned int	xunbr = va_arg(ap, unsigned int);
-	int					xunbr_len;
+	const int			xunbr_len = ft_unbrlen(xunbr, 16, opt);
 	int					hash;
 
-	xunbr_len = ft_unbrlen(xunbr, 16, opt);
 	hash = ((opt->flag & 010) == 010 && xunbr > 0) * 2;
-	opt->len = (opt->width > xunbr_len + hash) * opt->width + \
-			(opt->width <= xunbr_len + hash) * (xunbr_len + hash);
+	opt->len = ft_max(opt->width, xunbr_len + hash);
 	opt->out = malloc(opt->len);
 	if (!opt->out)
 		return (-1);

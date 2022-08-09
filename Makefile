@@ -6,7 +6,7 @@
 #    By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/05 20:08:04 by hyeyukim          #+#    #+#              #
-#    Updated: 2022/08/06 10:44:35 by hyeyukim         ###   ########.fr        #
+#    Updated: 2022/08/09 12:28:32 by hyeyukim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,10 @@ RM = rm
 RMFLAGS = -f
 
 FILES = printf \
+		printf_utils \
 		put_characters \
 		put_integers \
-		put_integers_utils \
+		put_integers_utils
 
 LIBFT = libft.a
 LIBFT_DIR = libft

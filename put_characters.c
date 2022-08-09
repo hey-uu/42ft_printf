@@ -6,10 +6,12 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 20:07:39 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/06 10:52:42 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/09 12:14:50 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <unistd.h>
 #include "ft_printf.h"
 #include "libft/libft.h"
 

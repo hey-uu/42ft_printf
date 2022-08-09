@@ -6,15 +6,13 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 10:37:38 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/06 10:44:52 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/09 12:31:48 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdlib.h>
-# include <unistd.h>
 # include <stdarg.h>
 
 typedef struct s_option
@@ -30,6 +28,11 @@ typedef struct s_option
 typedef int	(*t_fct)(t_option *, va_list);
 
 int		ft_printf(const char *format, ...);
+
+int		ft_max(int a, int b);
+void	init_option(t_option *opt);
+int		find_flag(const char c, unsigned char *flag);
+int		find_identifier(const char c);
 
 int		put_percent(t_option *opt, va_list ap);
 int		put_chr(t_option *opt, va_list ap);
