@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:43:24 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/09 12:15:09 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/09 14:32:51 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ void	decide_nbr_sign(t_option *opt, long nbr, int nbr_len)
 {
 	int	idx;
 
-	if ((opt->flag & 01) == 01 || \
-		((nbr < 0 || (opt->flag & 06) != 0) && (opt->flag & 060) == 020))
+	if ((opt->flag & 01) == 01 || (opt->flag & 060) == 020)
 		idx = 0;
 	else
 		idx = opt->len - nbr_len - 1;
@@ -68,8 +67,7 @@ void	decide_xunbr_hash(t_option *opt, int xunbr_len, int upper)
 {
 	int	idx;
 
-	if ((opt->flag & 01) == 01 || \
-		((opt->flag & 10) != 0 && (opt->flag & 060) == 020))
+	if ((opt->flag & 01) == 01 || (opt->flag & 060) == 020)
 		idx = 0;
 	else
 		idx = opt->len - xunbr_len - 2;

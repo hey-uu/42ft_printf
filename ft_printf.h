@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 10:37:38 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/09 12:31:48 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/09 14:38:39 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+
+# define DEC "0123456789"
+# define HDL "0123456789abcdef"
+# define HDU "0123456789ABCDEF"
 
 typedef struct s_option
 {
