@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 20:07:39 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/09 14:30:50 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/13 21:59:42 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ int	put_str(t_option *opt, va_list ap)
 	if (!str)
 		str = "(null)";
 	str_len = ft_strlen(str);
-	if ((opt->flag & 040) == 040 && str_len > opt->precision)
+	if ((opt->flag & 32) == 32 && str_len > opt->precision)
 		str_len = opt->precision;
 	opt->len = ft_max(str_len, opt->width);
 	opt->out = malloc(opt->len);
 	if (!opt->out)
 		return (-1);
 	ft_memset(opt->out, opt->padding, opt->len);
-	if ((opt->flag & 01) == 01)
+	if ((opt->flag & 1) == 1)
 		ft_memcpy(opt->out, str, str_len);
 	else
 		ft_memcpy(opt->out + opt->len - str_len, str, str_len);

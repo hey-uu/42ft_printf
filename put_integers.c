@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 20:09:39 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/09 15:09:50 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/13 22:04:01 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	put_nbr(t_option *opt, va_list ap)
 
 	nbr = (long) va_arg(ap, int);
 	nbr_len = ft_nbrlen(nbr, 10, opt);
-	sign = (nbr < 0 || (opt->flag & 06) != 0);
+	sign = (nbr < 0 || (opt->flag & 6) != 0);
 	opt->len = ft_max(opt->width, nbr_len + sign);
 	opt->out = malloc(opt->len);
 	if (!opt->out)
@@ -32,7 +32,7 @@ int	put_nbr(t_option *opt, va_list ap)
 	decide_nbr_sign(opt, nbr, nbr_len);
 	if (nbr < 0)
 		nbr *= -1;
-	if ((opt->flag & 01) == 01)
+	if ((opt->flag & 1) == 1)
 		unbrtostr(opt->out + sign, nbr, nbr_len, DEC);
 	else
 		unbrtostr(opt->out + opt->len - nbr_len, nbr, nbr_len, DEC);
@@ -49,7 +49,7 @@ int	put_unbr(t_option *opt, va_list ap)
 	if (!opt->out)
 		return (-1);
 	ft_memset(opt->out, opt->padding, opt->len);
-	if ((opt->flag & 01) == 01)
+	if ((opt->flag & 1) == 1)
 		unbrtostr(opt->out, unbr, unbr_len, DEC);
 	else
 		unbrtostr(opt->out + opt->len - unbr_len, unbr, unbr_len, DEC);
@@ -66,7 +66,7 @@ int	put_ptr(t_option *opt, va_list ap)
 	if (!opt->out)
 		return (-1);
 	ft_memset(opt->out, opt->padding, opt->len);
-	if ((opt->flag & 01) == 01)
+	if ((opt->flag & 1) == 1)
 	{
 		ft_memcpy(opt->out, "0x", 2);
 		unbrtostr(opt->out + 2, ptr, ptr_len, HDL);
@@ -83,9 +83,8 @@ int	put_xunbr_lower(t_option *opt, va_list ap)
 {
 	const unsigned int	xunbr = va_arg(ap, unsigned int);
 	const int			xunbr_len = ft_unbrlen(xunbr, 16, opt);
-	int					hash;
+	const int			hash = ((opt->flag & 8) == 8 && xunbr > 0) * 2;
 
-	hash = ((opt->flag & 010) == 010 && xunbr > 0) * 2;
 	opt->len = ft_max(opt->width, xunbr_len + hash);
 	opt->out = malloc(opt->len);
 	if (!opt->out)
@@ -93,7 +92,7 @@ int	put_xunbr_lower(t_option *opt, va_list ap)
 	ft_memset(opt->out, opt->padding, opt->len);
 	if (xunbr > 0)
 		decide_xunbr_hash(opt, xunbr_len, 0);
-	if ((opt->flag & 01) == 01)
+	if ((opt->flag & 1) == 1)
 		unbrtostr(opt->out + hash, xunbr, xunbr_len, HDL);
 	else
 		unbrtostr(opt->out + opt->len - xunbr_len, xunbr, xunbr_len, HDL);
@@ -104,9 +103,8 @@ int	put_xunbr_upper(t_option *opt, va_list ap)
 {
 	const unsigned int	xunbr = va_arg(ap, unsigned int);
 	const int			xunbr_len = ft_unbrlen(xunbr, 16, opt);
-	int					hash;
+	const int			hash = ((opt->flag & 8) == 8 && xunbr > 0) * 2;
 
-	hash = ((opt->flag & 010) == 010 && xunbr > 0) * 2;
 	opt->len = ft_max(opt->width, xunbr_len + hash);
 	opt->out = malloc(opt->len);
 	if (!opt->out)
@@ -114,7 +112,7 @@ int	put_xunbr_upper(t_option *opt, va_list ap)
 	ft_memset(opt->out, opt->padding, opt->len);
 	if (xunbr > 0)
 		decide_xunbr_hash(opt, xunbr_len, 1);
-	if ((opt->flag & 01) == 01)
+	if ((opt->flag & 1) == 1)
 		unbrtostr(opt->out + hash, xunbr, xunbr_len, HDU);
 	else
 		unbrtostr(opt->out + opt->len - xunbr_len, xunbr, xunbr_len, HDU);

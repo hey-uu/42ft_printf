@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:44:23 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/09 15:25:33 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/13 21:58:46 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,14 @@ static int	print_identifier(const char *format, int *i, va_list ap)
 	while (find_flag(format[++(*i)], &opt.flag))
 		;
 	while (ft_isdigit(format[*i]))
-	{
 		opt.width = opt.width * 10 + format[(*i)++] - '0';
-		if (opt.width < 0)
-			return (-1);
-	}
 	if (format[*i] == '.')
 	{
 		opt.flag |= 1 << 5;
 		while (ft_isdigit(format[++(*i)]))
 			opt.precision = opt.precision * 10 + format[*i] - '0';
 	}
-	if ((opt.flag & 061) == 020)
+	if ((opt.flag & 49) == 16)
 		opt.padding = '0';
 	res = put[find_identifier(format[*i])](&opt, ap);
 	free(opt.out);

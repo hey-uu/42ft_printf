@@ -6,7 +6,7 @@
 /*   By: hyeyukim <hyeyukim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 10:43:24 by hyeyukim          #+#    #+#             */
-/*   Updated: 2022/08/09 14:32:51 by hyeyukim         ###   ########.fr       */
+/*   Updated: 2022/08/13 22:00:51 by hyeyukim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_nbrlen(long n, int base_len, t_option *opt)
 {
 	int	len;
 
-	if (n == 0 && opt->precision == 0 && (opt->flag & 040) == 040)
+	if (n == 0 && opt->precision == 0 && (opt->flag & 32) == 32)
 		return (0);
 	len = (n == 0);
 	while (n != 0)
@@ -34,7 +34,7 @@ int	ft_unbrlen(unsigned long n, int base_len, t_option *opt)
 {
 	int	len;
 
-	if (n == 0 && opt->precision == 0 && (opt->flag & 040) == 040)
+	if (n == 0 && opt->precision == 0 && (opt->flag & 32) == 32)
 		return (0);
 	len = (n == 0);
 	while (n > 0)
@@ -51,15 +51,15 @@ void	decide_nbr_sign(t_option *opt, long nbr, int nbr_len)
 {
 	int	idx;
 
-	if ((opt->flag & 01) == 01 || (opt->flag & 060) == 020)
+	if ((opt->flag & 1) == 1 || (opt->flag & 48) == 16)
 		idx = 0;
 	else
 		idx = opt->len - nbr_len - 1;
 	if (nbr < 0)
 		opt->out[idx] = '-';
-	else if ((opt->flag & 02) == 02)
+	else if ((opt->flag & 2) == 2)
 		opt->out[idx] = '+';
-	else if ((opt->flag & 04) == 04)
+	else if ((opt->flag & 4) == 4)
 		opt->out[idx] = ' ';
 }
 
@@ -67,11 +67,11 @@ void	decide_xunbr_hash(t_option *opt, int xunbr_len, int upper)
 {
 	int	idx;
 
-	if ((opt->flag & 01) == 01 || (opt->flag & 060) == 020)
+	if ((opt->flag & 1) == 1 || (opt->flag & 48) == 16)
 		idx = 0;
 	else
 		idx = opt->len - xunbr_len - 2;
-	if ((opt->flag & 010) == 010)
+	if ((opt->flag & 8) == 8)
 	{
 		opt->out[idx] = '0';
 		opt->out[idx + 1] = 'x' * (upper == 0) + 'X' * (upper == 1);
