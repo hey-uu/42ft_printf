@@ -1,0 +1,78 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: juykang <juykang@student.42seoul.kr>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/07 10:44:34 by juykang           #+#    #+#              #
+#    Updated: 2022/09/07 14:14:08 by juykang          ###   ########seoul.kr   #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libftprintf.a
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar
+ARFLAGS = crs
+RM = rm
+RMFLAGS = -f
+
+FILES = ft_printf_char   \
+        ft_printf_num    \
+        ft_put_nbr_utils \
+        ft_put_unbr_utils\
+        ft_libft         \
+        ft_printf        
+BONUS_FILES = $(addsuffix _bonus, $(FILES))
+
+SRCS = $(addsuffix .c, $(FILES))
+OBJCS = $(addsuffix .o, $(FILES))
+BONUS_SRCS = $(addsuffix .c, $(BONUS_FILES))
+BONUS_OBJCS = $(addsuffix .o, $(BONUS_FILES))
+
+ifdef WITH_BONUS
+    INC = ft_printf_bonus.h
+else
+    INC = ft_printf.h
+endif
+
+%.o : %.c $(INC)
+    $(CC) -c $(CFLAGS) $< -o $@
+
+all : mandatory_all
+    @echo INC=$(INC) at the end of all
+
+bonus :
+    make WITH_BONUS=1 bonus_define
+    @echo INC=$(INC) at the end of bonus
+
+clean :
+    $(RM) $(RMFLAGS) $(OBJCS) $(BONUS_OBJCS) mandatory_all bonus_all
+
+fclean : clean
+    $(RM) $(RMFLAGS) $(NAME)
+
+re :
+    make fclean
+    make all
+
+mandatory_all : $(OBJCS)
+    @echo INC=$(INC) during mandatory_all
+    @$(RM) $(RMFLAGS) $(NAME)
+    $(AR) $(ARFLAGS) $(NAME) $^
+    @$(RM) $(RMFLAGS) bonus_all
+    @touch $@
+
+bonus_define : bonus_all
+
+bonus_all : $(BONUS_OBJCS)
+    @echo INC=$(INC) during bonus_all
+    @echo WITH_BONUS=$(WITH_BONUS)
+    @$(RM) $(RMFLAGS) $(NAME)
+    $(AR) $(ARFLAGS) $(NAME) $^
+    @$(RM) $(RMFLAGS) mandatory_all
+    @touch $@
+
+.PHONY : all clean fclean re bonus bonus_define
